@@ -1,0 +1,68 @@
+#mainCalcDiv {
+    display: flex;
+    align-items: center;
+    min-height: 50%;
+    width: 24%;
+    border: 3.5px;
+    flex-direction: column;
+    margin: auto;
+    border-style: solid;
+    padding: 2%;
+    border-color: #3b88c3;
+    background-color: #55acee;
+    
+}
+#displayDiv {
+    width: 100%;
+    height: 85px;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    border-style: solid;
+    border-radius:4%;
+    padding: 0.2%;
+    
+}
+
+.buttons-grid {
+    display: grid;
+    height: 325px;
+    width: 100%;
+    padding-top: 3%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    }
+        
+#clear { grid-area: 1 / 1 / 2 / 3; }
+#delete { grid-area: 1 / 3 / 2 / 5; }
+
+#calcDiv {
+    padding-top: 5px;
+    padding-right: 12px;
+    font-size: 25px;
+}  
+#resultsDiv {
+    padding-top: 5px;
+    padding-right: 12px;
+    font-size: 35px;
+
+}  
+
+p {
+    font-size: 5px;
+}
+
+#robotEmoji{
+    margin:auto;
+    display:block;
+    height:310px;
+    width: 30%;
+}
+/* 
+- Prendere i colori del robot emoji 🤖 
+- Sistemare bordi e stile bottoni 
+- Sfondo + testa robbò 
+- font
+*/ 
