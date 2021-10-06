@@ -34,13 +34,6 @@ let numB = "";
 let operator = "";
 let result = "";
 
-/* const displayUpdate = function() {
-    display.textContent = operate(operator, numA, numB);
-    displayValue = operate(operator, numA, numB);
-} 
-DA FUCKY ??
-peepoConfused*/ 
-
 const buttons = document.querySelectorAll("button");
 const calcDiv = document.querySelector("#calcDiv");
 const resultsDiv = document.querySelector("#resultsDiv");
