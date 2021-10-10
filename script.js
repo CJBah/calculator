@@ -53,32 +53,46 @@ buttons.forEach((button) => {
         numA = "";
         numB = "";
         operator = "";
-        calcDiv.textContent = "";
-        resultsDiv.textContent = "";
+        calcDiv.textContent = "ㅤ";
+        resultsDiv.textContent = "0";
     }
     const displayDelete = function() {
         tempNum = tempNum.slice(0, -1);
         resultsDiv.textContent = tempNum;
     }
     const displayOperator = function() {
-        if(calcDiv.textContent.includes("+") || calcDiv.textContent.includes("-") 
-        || calcDiv.textContent.includes("*") || calcDiv.textContent.includes("/")){
+        if((calcDiv.textContent.includes("+") || calcDiv.textContent.includes("-") || calcDiv.textContent.includes("*") || calcDiv.textContent.includes("/")) && !(calcDiv.textContent.includes("="))) {
             numB = tempNum;
             tempNum = "";
             result = operate(operator, Number(numA), Number(numB));
             operator = button.value;
             numA = result;
             calcDiv.textContent = numA + button.value;
-        } else {
+        } 
+        else if (calcDiv.textContent.includes("=")){
+            numB = tempNum;
+            tempNum = "";
+            console.log(numA + operator + numB)
+            operator = button.value;
+            numA = result;
+            calcDiv.textContent = numA + button.value;
+        }
+        else {
             numA = tempNum;
             tempNum = "";
             calcDiv.textContent = numA + button.value;
             operator = button.value;
+        
     }}
 
     button.onclick = function() {
         if(button.className == "digit"){
-            displayDigit();};
+            if (tempNum <= 99999999999999) {
+            displayDigit();}
+            else {
+                alert ("ERR0R")
+            }
+        };
         if(button.id == "point"){
             displayPoint();};
         if(button.id == "clear"){
@@ -91,7 +105,7 @@ buttons.forEach((button) => {
         if(button.id == "equal"){
             numB = tempNum;
             tempNum = "";
-            calcDiv.textContent = numA + operator + numB;
+            calcDiv.textContent = numA + operator + numB + "=";
             result = operate(operator, Number(numA), Number(numB));
             resultsDiv.textContent = result;
             numA = result;
