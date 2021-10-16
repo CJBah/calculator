@@ -110,8 +110,53 @@ buttons.forEach((button) => {
             resultsDiv.textContent = result;
             numA = result;
         }
-
     }
+
+    document.onkeydown = function(e){
+        if(e.key >= 0 && e.key <= 9){
+            if (tempNum <= 99999999999999) {
+                tempNum = tempNum + e.key;
+                resultsDiv.textContent = tempNum;}
+                else {
+                    alert ("ERR0R")}
+        } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/"){
+            if((calcDiv.textContent.includes("+") || calcDiv.textContent.includes("-") || calcDiv.textContent.includes("*") || calcDiv.textContent.includes("/")) && !(calcDiv.textContent.includes("="))) {
+                numB = tempNum;
+                tempNum = "";
+                result = operate(operator, Number(numA), Number(numB));
+                operator = e.key;
+                numA = result;
+                calcDiv.textContent = numA + e.key;
+            } 
+            else if (calcDiv.textContent.includes("=")){
+                numB = tempNum;
+                tempNum = "";
+                console.log(numA + operator + numB)
+                operator = e.key;
+                numA = result;
+                calcDiv.textContent = numA + e.key;
+            }
+            else {
+                numA = tempNum;
+                tempNum = "";
+                calcDiv.textContent = numA + e.key;
+                operator = e.key;
+            }
+        } else if(e.key == "Escape" || e.key == "Delete") {
+            displayClear()
+        } else if(e.key == "Backspace") {
+            displayDelete()
+        } else if(e.key == "=" || e.key == "Enter") {
+            numB = tempNum;
+            tempNum = "";
+            calcDiv.textContent = numA + operator + numB + "=";
+            result = operate(operator, Number(numA), Number(numB));
+            resultsDiv.textContent = result;
+            numA = result;
+        }
+    } //fine keydown
+    
 })
+
 
 

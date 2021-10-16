@@ -11,8 +11,8 @@ body{
     display: flex;
     align-items: center;
     min-height: 50%;
-    width: 16.5%;
-    border: 3.5px;
+    width: 16%;
+    border: 7px;
     flex-direction: column;
     margin: auto;
     border-style: solid;
@@ -70,7 +70,7 @@ p {
 #robotEmoji{
     margin:auto;
     display:block;
-    height:310px;
+    height: 370px;
     width: 22%;
 }
 
